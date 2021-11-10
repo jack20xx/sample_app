@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   
   get '/signup', to: 'users#new'
   
-  get '/signup', to: 'users#create'
+  post '/signup', to: 'users#create'
   
   get '/login', to: 'sessions#new'
   
@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   
   resources :users
+  
+  resources :account_activations, only: [:edit]
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
